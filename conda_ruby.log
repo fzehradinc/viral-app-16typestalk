@@ -1,0 +1,4 @@
+Starting conda install...
+zsh: command not found: conda
+Conda status: 127
+ls: /Users/fzehradinc/miniconda/bin/ruby: No such file or directory
