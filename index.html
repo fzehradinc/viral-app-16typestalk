@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>16TypeTalk — 16 MBTI Minds Debate Your Every Decision</title>
+<meta name="description" content="What would ENTJ, INFP, and INTJ say about your biggest decision right now? 16TypeTalk is coming to the App Store. Join the waitlist.">
+<meta property="og:title" content="16TypeTalk — 16 Minds. Your Decisions.">
+<meta property="og:description" content="The AI advisor that thinks in 16 different personalities. Coming to App Store soon.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+/* ── ROOT ──────────────────────────────────────────────────────────────── */
+:root {
+  --bg:       #07070D;
+  --bg2:      #0D0D1A;
+  --bg3:      #121220;
+  --card:     rgba(255,255,255,0.035);
+  --border:   rgba(255,255,255,0.07);
+  --border2:  rgba(255,255,255,0.12);
+  --purple:   #6B5CE7;
+  --purple-l: #9B8FFF;
+  --purple-d: #3D3580;
+  --gold:     #EF9F27;
+  --teal:     #4DBDBA;
+  --red:      #F87171;
+  --green:    #4ADE80;
+  --t1: rgba(255,255,255,0.92);
+  --t2: rgba(255,255,255,0.55);
+  --t3: rgba(255,255,255,0.28);
+  --ff-d: 'Playfair Display', Georgia, serif;
+  --ff-b: 'DM Sans', system-ui, sans-serif;
+  --ff-m: 'DM Mono', monospace;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t1);font-family:var(--ff-b);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* ── PARTICLES ─────────────────────────────────────────────────────────── */
+#canvas-wrap{position:fixed;inset:0;z-index:0;pointer-events:none}
+canvas{width:100%;height:100%}
+
+/* ── NAV ──────────────────────────────────────────────────────────────── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;background:rgba(7,7,13,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background .3s}
+.nav-inner{max-width:1160px;margin:0 auto;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--ff-d);font-size:20px;font-weight:700;color:var(--t1);text-decoration:none;letter-spacing:-.3px}
+.nav-logo em{font-style:normal;color:var(--purple-l)}
+.nav-cta{background:var(--purple);color:#fff;font-size:13px;font-weight:500;padding:8px 18px;border-radius:10px;text-decoration:none;border:none;cursor:pointer;font-family:var(--ff-b);transition:background .2s,transform .15s}
+.nav-cta:hover{background:#7C6FE8;transform:translateY(-1px)}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{font-size:13px;color:var(--t2);text-decoration:none;padding:6px 12px;border-radius:8px;transition:color .15s}
+.nav-links a:hover{color:var(--t1)}
+
+/* ── HERO ──────────────────────────────────────────────────────────────── */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;z-index:1}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(107,92,231,0.12);border:1px solid rgba(107,92,231,0.30);border-radius:24px;padding:6px 16px;margin-bottom:32px;font-size:12px;font-weight:500;color:var(--purple-l);letter-spacing:.08em;text-transform:uppercase}
+.eyebrow-dot{width:7px;height:7px;border-radius:50%;background:var(--purple-l);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(155,143,255,0.6)}50%{opacity:.5;box-shadow:0 0 0 6px rgba(155,143,255,0)}}
+.hero-h1{font-family:var(--ff-d);font-size:clamp(42px,7vw,88px);font-weight:700;line-height:1.05;letter-spacing:-1.5px;margin-bottom:24px;max-width:900px}
+.hero-h1 em{font-style:italic;color:var(--purple-l)}
+.hero-sub{font-size:clamp(16px,2vw,20px);color:var(--t2);line-height:1.65;max-width:560px;margin:0 auto 48px}
+.hero-sub strong{color:var(--t1);font-weight:500}
+.hero-form-wrap{width:100%;max-width:480px;margin:0 auto 20px}
+.hero-form{display:flex;gap:8px;background:rgba(255,255,255,0.05);border:1px solid var(--border2);border-radius:14px;padding:6px 6px 6px 18px;align-items:center}
+.hero-form input[type=email]{flex:1;background:transparent;border:none;outline:none;font-size:15px;color:var(--t1);font-family:var(--ff-b);min-width:0}
+.hero-form input::placeholder{color:var(--t3)}
+.hero-form button{background:var(--purple);border:none;border-radius:10px;padding:10px 20px;font-size:14px;font-weight:500;color:#fff;cursor:pointer;font-family:var(--ff-b);white-space:nowrap;transition:background .2s,transform .15s;flex-shrink:0}
+.hero-form button:hover{background:#7C6FE8;transform:scale(1.02)}
+.hero-note{font-size:12px;color:var(--t3);text-align:center;margin-bottom:60px}
+.hero-waitlist-count{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--t2)}
+.hero-avatars{display:flex}
+.avatar{width:26px;height:26px;border-radius:50%;border:2px solid var(--bg);margin-right:-8px;display:flex;align-items:center;justify-content:center;font-size:12px}
+.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--t3);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.scroll-arrow{width:20px;height:20px;border-right:1.5px solid var(--t3);border-bottom:1.5px solid var(--t3);transform:rotate(45deg);animation:bounce 2s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
+.hero-success{display:none;flex-direction:column;align-items:center;gap:12px;padding:20px 28px;background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.25);border-radius:14px}
+.hero-success-icon{font-size:32px}
+.hero-success-title{font-size:18px;font-weight:600;color:var(--green)}
+.hero-success-sub{font-size:14px;color:var(--t2);text-align:center;max-width:300px;line-height:1.5}
+
+/* ── SECTION BASE ──────────────────────────────────────────────────────── */
+section{position:relative;z-index:1}
+.section-inner{max-width:1160px;margin:0 auto;padding:0 24px}
+.section-label{font-size:11px;font-weight:500;color:var(--purple);font-family:var(--ff-m);letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.section-label::after{content:'';flex:1;height:1px;background:var(--purple-d);max-width:60px}
+.section-title{font-family:var(--ff-d);font-size:clamp(28px,4vw,48px);font-weight:700;line-height:1.1;letter-spacing:-.5px;margin-bottom:20px}
+.section-title em{font-style:italic;color:var(--purple-l)}
+.section-sub{font-size:17px;color:var(--t2);line-height:1.65;max-width:560px}
+
+/* ── PROBLEM ──────────────────────────────────────────────────────────── */
+.problem-section{padding:120px 0}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:60px}
+.problem-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 32px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.problem-card:hover{border-color:rgba(107,92,231,0.25);transform:translateY(-2px)}
+.problem-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--purple-d)}
+.pc-icon{font-size:28px;margin-bottom:16px}
+.pc-title{font-size:18px;font-weight:600;color:var(--t1);margin-bottom:10px;line-height:1.3}
+.pc-body{font-size:15px;color:var(--t2);line-height:1.65}
+.pc-body em{color:var(--t1);font-style:italic}
+
+/* ── HOW IT WORKS ─────────────────────────────────────────────────────── */
+.how-section{padding:120px 0;background:linear-gradient(180deg,transparent 0%,rgba(107,92,231,0.04) 50%,transparent 100%)}
+.steps-wrap{margin-top:70px}
+.step{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:100px}
+.step:nth-child(even){direction:rtl}
+.step:nth-child(even)>*{direction:ltr}
+.step-content{}
+.step-num{font-family:var(--ff-m);font-size:11px;color:var(--purple);letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.step-num::before{content:attr(data-n);width:28px;height:28px;background:rgba(107,92,231,0.15);border:1px solid rgba(107,92,231,0.3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--purple-l)}
+.step-h{font-family:var(--ff-d);font-size:clamp(24px,3vw,34px);font-weight:700;line-height:1.2;margin-bottom:16px;letter-spacing:-.3px}
+.step-h em{font-style:italic;color:var(--purple-l)}
+.step-body{font-size:16px;color:var(--t2);line-height:1.75;margin-bottom:20px}
+.step-body strong{color:var(--t1);font-weight:500}
+.step-detail{display:flex;flex-direction:column;gap:10px}
+.sd-item{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--t2);line-height:1.5}
+.sd-dot{width:6px;height:6px;border-radius:50%;background:var(--purple);flex-shrink:0;margin-top:6px}
+.step-visual{border-radius:20px;overflow:hidden;position:relative}
+.phone-frame{width:100%;max-width:300px;margin:0 auto;background:var(--bg2);border:1.5px solid rgba(107,92,231,0.25);border-radius:36px;padding:16px;box-shadow:0 40px 80px rgba(0,0,0,0.5),0 0 0 1px rgba(107,92,231,0.08)}
+.phone-notch{width:80px;height:6px;background:rgba(255,255,255,0.06);border-radius:3px;margin:0 auto 16px}
+.phone-screen{border-radius:20px;overflow:hidden;background:var(--bg3)}
+.phone-screen img{width:100%;display:block}
+.phone-glow{position:absolute;inset:-40px;background:radial-gradient(circle at 50% 50%,rgba(107,92,231,0.12) 0%,transparent 60%);pointer-events:none}
+
+/* ── CHARACTERS ───────────────────────────────────────────────────────── */
+.chars-section{padding:120px 0}
+.chars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:60px}
+.char-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px 20px;transition:all .3s;cursor:default;position:relative;overflow:hidden}
+.char-card::before{content:'';position:absolute;inset:0;background:var(--char-color,rgba(107,92,231,0.06));opacity:0;transition:opacity .3s}
+.char-card:hover::before{opacity:1}
+.char-card:hover{border-color:var(--char-border,rgba(107,92,231,0.3));transform:translateY(-3px)}
+.cc-emoji{font-size:28px;margin-bottom:12px}
+.cc-code{font-size:13px;font-weight:600;color:var(--char-accent,var(--purple-l));margin-bottom:4px;font-family:var(--ff-m)}
+.cc-name{font-size:16px;font-weight:600;color:var(--t1);margin-bottom:8px}
+.cc-desc{font-size:13px;color:var(--t2);line-height:1.5}
+.cc-quote{font-size:12px;color:var(--t3);font-style:italic;margin-top:12px;border-top:1px solid var(--border);padding-top:12px;line-height:1.5}
+
+/* ── SOCIAL PROOF ─────────────────────────────────────────────────────── */
+.proof-section{padding:100px 0;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.proof-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:16px;overflow:hidden;margin-top:60px}
+.stat-cell{background:var(--bg2);padding:40px 32px;text-align:center}
+.stat-val{font-family:var(--ff-d);font-size:clamp(36px,5vw,56px);font-weight:700;color:var(--t1);line-height:1;margin-bottom:8px}
+.stat-val em{color:var(--purple-l);font-style:normal}
+.stat-label{font-size:14px;color:var(--t2);line-height:1.4}
+.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.tcard{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;transition:border-color .3s}
+.tcard:hover{border-color:rgba(107,92,231,0.25)}
+.tcard-text{font-size:15px;color:var(--t2);line-height:1.65;font-style:italic;margin-bottom:16px}
+.tcard-text strong{color:var(--t1);font-style:normal;font-weight:500}
+.tcard-who{display:flex;align-items:center;gap:10px}
+.tcard-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px}
+.tcard-name{font-size:13px;font-weight:500;color:var(--t1)}
+.tcard-type{font-size:11px;color:var(--purple-l)}
+
+/* ── FINAL CTA ─────────────────────────────────────────────────────────── */
+.cta-section{padding:160px 0;text-align:center}
+.cta-inner{max-width:700px;margin:0 auto;padding:0 24px}
+.cta-chars-row{display:flex;justify-content:center;gap:10px;margin-bottom:48px;flex-wrap:wrap}
+.cta-char{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;border:1px solid rgba(255,255,255,0.06)}
+.cta-title{font-family:var(--ff-d);font-size:clamp(32px,5vw,56px);font-weight:700;line-height:1.1;margin-bottom:20px;letter-spacing:-.5px}
+.cta-title em{font-style:italic;color:var(--purple-l)}
+.cta-sub{font-size:18px;color:var(--t2);line-height:1.6;margin-bottom:48px}
+.cta-form{display:flex;gap:10px;justify-content:center;max-width:480px;margin:0 auto 16px}
+.cta-form input{flex:1;background:rgba(255,255,255,0.06);border:1px solid var(--border2);border-radius:12px;padding:14px 18px;font-size:15px;color:var(--t1);font-family:var(--ff-b);outline:none;transition:border-color .2s}
+.cta-form input:focus{border-color:var(--purple)}
+.cta-form input::placeholder{color:var(--t3)}
+.cta-form button{background:var(--purple);border:none;border-radius:12px;padding:14px 28px;font-size:15px;font-weight:600;color:#fff;cursor:pointer;font-family:var(--ff-b);white-space:nowrap;transition:background .2s,transform .15s}
+.cta-form button:hover{background:#7C6FE8;transform:translateY(-1px)}
+.cta-fine{font-size:12px;color:var(--t3)}
+.cta-success{display:none;flex-direction:column;align-items:center;gap:10px}
+.cta-success-icon{font-size:40px}
+.cta-success-h{font-size:22px;font-weight:600;color:var(--green)}
+.cta-success-s{font-size:15px;color:var(--t2);max-width:320px;text-align:center;line-height:1.5}
+
+/* ── FOOTER ────────────────────────────────────────────────────────────── */
+footer{border-top:1px solid var(--border);padding:40px 24px;position:relative;z-index:1}
+.footer-inner{max-width:1160px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:var(--ff-d);font-size:16px;font-weight:700;color:var(--t2)}
+.footer-logo em{font-style:normal;color:var(--purple-l)}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:13px;color:var(--t3);text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--t1)}
+
+/* ── DIVIDER GLOW ──────────────────────────────────────────────────────── */
+.glow-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(107,92,231,0.4) 50%,transparent);margin:0}
+
+/* ── FADE IN ────────────────────────────────────────────────────────────── */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:none}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────────────── */
+@media(max-width:900px){
+  .chars-grid{grid-template-columns:repeat(2,1fr)}
+  .problem-grid{grid-template-columns:1fr}
+  .step{grid-template-columns:1fr;gap:40px}
+  .step:nth-child(even){direction:ltr}
+  .testimonials{grid-template-columns:1fr}
+  .proof-stats{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .chars-grid{grid-template-columns:1fr 1fr}
+  .hero-form{flex-direction:column;padding:12px}
+  .hero-form input{width:100%}
+  .hero-form button{width:100%}
+  .cta-form{flex-direction:column}
+  .cta-form button{width:100%}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Canvas for particles -->
+<div id="canvas-wrap"><canvas id="cvs"></canvas></div>
+
+<!-- ══ NAV ═════════════════════════════════════════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><em>16</em>TypeTalk</a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#voices">The 16 Voices</a>
+      <a href="#waitlist">Waitlist</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+    <a href="#waitlist" class="nav-cta" onclick="scrollToWaitlist(event)">Get Early Access →</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ════════════════════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-eyebrow">
+    <span class="eyebrow-dot"></span>
+    Coming to App Store — Join the Waitlist
+  </div>
+
+  <h1 class="hero-h1">
+    What would <em>16 different minds</em><br>say about your problem?
+  </h1>
+
+  <p class="hero-sub">
+    You've been overthinking alone. <strong>16TypeTalk</strong> assembles a Council of MBTI personalities — ENTJ challenges you, INFP surprises you, INTJ sees what you're missing. Then gives you a verdict.
+  </p>
+
+  <!-- FORM -->
+  <div class="hero-form-wrap" id="hero-form-wrap">
+    <form id="heroForm" class="hero-form" onsubmit="handleHeroSubmit(event)">
+      <input type="email" id="heroEmail" placeholder="your@email.com" autocomplete="email" required>
+      <button type="submit">Notify Me →</button>
+    </form>
+    <p class="hero-note">Be the first to build your Council. No spam, ever.</p>
+  </div>
+
+  <!-- SUCCESS -->
+  <div class="hero-success" id="heroSuccess">
+    <div class="hero-success-icon">✨</div>
+    <div class="hero-success-title">You're on the list.</div>
+    <div class="hero-success-sub">We'll send you one email the moment 16TypeTalk drops on the App Store. Your Council is waiting.</div>
+  </div>
+
+  <!-- SOCIAL PROOF -->
+  <div class="hero-waitlist-count">
+    <div class="hero-avatars">
+      <div class="avatar" style="background:#1A0F3A">⚡</div>
+      <div class="avatar" style="background:#041A1A">🌊</div>
+      <div class="avatar" style="background:#0F1F2A">🔭</div>
+      <div class="avatar" style="background:#0F2A1A">💡</div>
+      <div class="avatar" style="background:#1A0F2A">🌙</div>
+    </div>
+    <span style="margin-left:14px">
+      <strong style="color:var(--t1)">2,400+</strong> people already waiting
+    </span>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-arrow"></div>
+    scroll to explore
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ══ PROBLEM ═════════════════════════════════════════════════════════ -->
+<section class="problem-section" id="problem">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label">The Problem</div>
+      <h2 class="section-title">You already know the answer.<br><em>You just can't hear it.</em></h2>
+      <p class="section-sub">Big decisions feel impossible because you're trapped in one perspective — yours. What you need isn't more thinking. You need different thinking.</p>
+    </div>
+
+    <div class="problem-grid" style="margin-top:60px">
+      <div class="problem-card fade-up" style="--delay:.1s">
+        <div class="pc-icon">🔄</div>
+        <div class="pc-title">You've been circling the same thought for days</div>
+        <div class="pc-body">Every angle feels like a dead end. You ask friends — they tell you what you want to hear. You ask Google — you get generic advice. What you need is <em>structured, honest perspective-taking</em>.</div>
+      </div>
+      <div class="problem-card fade-up" style="--delay:.2s">
+        <div class="pc-icon">🧠</div>
+        <div class="pc-title">Your personality type limits how you see the problem</div>
+        <div class="pc-body">If you're an INFP, you're leading with feeling. If you're an ENTJ, you're leading with outcome. <em>What would the opposite type say?</em> That's where breakthroughs hide.</div>
+      </div>
+      <div class="problem-card fade-up" style="--delay:.3s">
+        <div class="pc-icon">😶</div>
+        <div class="pc-title">People only tell you what they think you want to hear</div>
+        <div class="pc-body">Human advisors filter their feedback. They protect your feelings. The ENTJ in your Council doesn't. <em>It tells you the thing no one else will say.</em></div>
+      </div>
+      <div class="problem-card fade-up" style="--delay:.4s">
+        <div class="pc-icon">⚡</div>
+        <div class="pc-title">After one session, you'll see the decision differently</div>
+        <div class="pc-body">Not because the Council gives you the answer — because <em>the act of hearing 16 perspectives clarifies which one is already yours</em>. That's the design.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ══ HOW IT WORKS ════════════════════════════════════════════════════ -->
+<section class="how-section" id="how">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Three steps.<br><em>One verdict.</em></h2>
+      <p class="section-sub">Built around MBTI psychology. Powered by AI. Designed to cut through the noise inside your head.</p>
+    </div>
+
+    <div class="steps-wrap">
+
+      <!-- STEP 1 -->
+      <div class="step fade-up">
+        <div class="step-content">
+          <div class="step-num" data-n="01">Step 01</div>
+          <h3 class="step-h">Share what's<br><em>on your mind</em></h3>
+          <p class="step-body">Type it or speak it. Your career decision, your relationship dilemma, your creative block, your financial choice. <strong>There is no wrong topic.</strong> The Council has discussed "should I quit?" as thoughtfully as "should I tell them how I feel?"</p>
+          <div class="step-detail">
+            <div class="sd-item"><div class="sd-dot"></div><span>Text or voice input — speak naturally</span></div>
+            <div class="sd-item"><div class="sd-dot"></div><span>No judgment. No filters. No "right way" to describe it.</span></div>
+            <div class="sd-item"><div class="sd-dot"></div><span>The AI detects the emotional context and tone</span></div>
+          </div>
+        </div>
+        <div class="step-visual">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <!-- Placeholder for home screen screenshot -->
+              <div style="padding:20px;background:var(--bg3)">
+                <div style="font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">What's on your mind?</div>
+                <div style="background:rgba(255,255,255,0.04);border-radius:10px;padding:12px;margin-bottom:12px">
+                  <div style="font-size:12px;color:var(--t2);font-style:italic;line-height:1.5">"Am I on the right career path? I feel successful but something doesn't fit..."</div>
+                </div>
+                <div style="display:flex;gap:6px;margin-bottom:12px">
+                  <div style="background:#1A0F3A;border-radius:8px;padding:5px 9px;font-size:10px;color:#9F8FEF;font-weight:600">⚡ ENTJ</div>
+                  <div style="background:#041A1A;border-radius:8px;padding:5px 9px;font-size:10px;color:#4DBDBA;font-weight:600">🌊 INFP</div>
+                  <div style="background:#0F1F2A;border-radius:8px;padding:5px 9px;font-size:10px;color:#7EB8D4;font-weight:600">🔭 INTJ</div>
+                  <div style="background:#0F2A1A;border-radius:8px;padding:5px 9px;font-size:10px;color:#5FC97E;font-weight:600">💡 ENTP</div>
+                </div>
+                <div style="background:#6B5CE7;border-radius:10px;padding:10px;text-align:center;font-size:12px;font-weight:600;color:white">Build My Council →</div>
+              </div>
+            </div>
+            <div class="phone-glow"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step fade-up">
+        <div class="step-content">
+          <div class="step-num" data-n="02">Step 02</div>
+          <h3 class="step-h">The Council<br><em>debates</em></h3>
+          <p class="step-body">Between 2 and 5 MBTI personalities take the floor. Each one speaks in their authentic voice — ENTJ challenges your assumptions, INFJ senses what's unspoken, ENTP proposes the angle you hadn't considered. <strong>And then you vote on who resonates.</strong></p>
+          <div class="step-detail">
+            <div class="sd-item"><div class="sd-dot"></div><span>Each character has a distinct voice, philosophy, and communication style</span></div>
+            <div class="sd-item"><div class="sd-dot"></div><span>Round 1: all voices speak. Round 2: you go deeper with your chosen voice</span></div>
+            <div class="sd-item"><div class="sd-dot"></div><span>Quick-reply chips make it easy to push back or ask more</span></div>
+          </div>
+        </div>
+        <div class="step-visual">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img src="screen-discussion.jpg" alt="16TypeTalk Discussion Screen — character voices debating a career question" loading="lazy" style="filter:brightness(0.95)">
+            </div>
+            <div class="phone-glow"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step fade-up">
+        <div class="step-content">
+          <div class="step-num" data-n="03">Step 03</div>
+          <h3 class="step-h">The Council's<br><em>Verdict</em></h3>
+          <p class="step-body">Not generic advice. A report written for <em>you</em>. The Core Tension your problem actually hides. What your votes reveal about your personality. Three paths forward. And one thing to do this week. <strong>This is the moment people screenshot and share.</strong></p>
+          <div class="step-detail">
+            <div class="sd-item"><div class="sd-dot"></div><span>"Your insight" — what the AI sees that you might not</span></div>
+            <div class="sd-item"><div class="sd-dot"></div><span>Three diverging paths — laid out clearly, without judgment</span></div>
+            <div class="sd-item"><div class="sd-dot"></div><span>One concrete action to take this week</span></div>
+          </div>
+        </div>
+        <div class="step-visual">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img src="screen-report.jpg" alt="16TypeTalk Report — The Council's Verdict with deep personal insight" loading="lazy" style="filter:brightness(0.95)">
+            </div>
+            <div class="phone-glow"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ══ 16 VOICES ════════════════════════════════════════════════════════ -->
+<section class="chars-section" id="voices">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label">The 16 Voices</div>
+      <h2 class="section-title">Every perspective.<br><em>One Council.</em></h2>
+      <p class="section-sub">Select 2 to 5 voices for each session. Each one thinks differently. Each one will say something the others won't.</p>
+    </div>
+
+    <div class="chars-grid" style="margin-top:60px">
+      <!-- NT — Analysts -->
+      <div class="char-card fade-up" style="--char-color:rgba(159,143,239,0.08);--char-border:rgba(159,143,239,0.3);--char-accent:#9F8FEF">
+        <div class="cc-emoji">⚡</div>
+        <div class="cc-code">ENTJ</div>
+        <div class="cc-name">The Commander</div>
+        <div class="cc-desc">Cuts through sentiment. Demands clarity. Will ask the question you've been avoiding.</div>
+        <div class="cc-quote">"Stop waiting for perfect conditions. What's the cost of another six months of inaction?"</div>
+      </div>
+      <div class="char-card fade-up" style="--char-color:rgba(126,184,212,0.08);--char-border:rgba(126,184,212,0.3);--char-accent:#7EB8D4">
+        <div class="cc-emoji">🔭</div>
+        <div class="cc-code">INTJ</div>
+        <div class="cc-name">The Architect</div>
+        <div class="cc-desc">Sees the system behind the problem. Maps what you're not accounting for.</div>
+        <div class="cc-quote">"You're solving the symptom. What's the actual pattern that keeps producing this?"</div>
+      </div>
+      <div class="char-card fade-up" style="--char-color:rgba(95,201,126,0.08);--char-border:rgba(95,201,126,0.3);--char-accent:#5FC97E">
+        <div class="cc-emoji">💡</div>
+        <div class="cc-code">ENTP</div>
+        <div class="cc-name">The Debater</div>
+        <div class="cc-desc">Challenges every assumption. Proposes the option you dismissed too quickly.</div>
+        <div class="cc-quote">"What if the thing you think is the problem is actually the solution in disguise?"</div>
+      </div>
+      <div class="char-card fade-up" style="--char-color:rgba(106,171,247,0.08);--char-border:rgba(106,171,247,0.3);--char-accent:#6AABF7">
+        <div class="cc-emoji">🧮</div>
+        <div class="cc-code">INTP</div>
+        <div class="cc-name">The Logician</div>
+        <div class="cc-desc">Builds the logic map. Finds the flaw in your reasoning you didn't notice.</div>
+        <div class="cc-quote">"Walk me through the assumption underneath that. Is it actually true?"</div>
+      </div>
+      <!-- NF — Diplomats -->
+      <div class="char-card fade-up" style="--char-color:rgba(200,132,252,0.08);--char-border:rgba(200,132,252,0.3);--char-accent:#C084FC">
+        <div class="cc-emoji">🌙</div>
+        <div class="cc-code">INFJ</div>
+        <div class="cc-name">The Advocate</div>
+        <div class="cc-desc">Senses what you're not saying. Points to the deeper pattern behind your words.</div>
+        <div class="cc-quote">"You said 'fine' three times. What's the thing you're not letting yourself want?"</div>
+      </div>
+      <div class="char-card fade-up" style="--char-color:rgba(77,189,186,0.08);--char-border:rgba(77,189,186,0.3);--char-accent:#4DBDBA">
+        <div class="cc-emoji">🌊</div>
+        <div class="cc-code">INFP</div>
+        <div class="cc-name">The Mediator</div>
+        <div class="cc-desc">Grounds every decision in values. Asks if the path aligns with who you really are.</div>
+        <div class="cc-quote">"Success means nothing if you're becoming someone you don't recognize."</div>
+      </div>
+      <div class="char-card fade-up" style="--char-color:rgba(248,113,113,0.08);--char-border:rgba(248,113,113,0.3);--char-accent:#F87171">
+        <div class="cc-emoji">🔥</div>
+        <div class="cc-code">ENFJ</div>
+        <div class="cc-name">The Protagonist</div>
+        <div class="cc-desc">Sees your potential first. Pushes you toward the version of yourself you're capable of being.</div>
+        <div class="cc-quote">"What would you do if you were already the person you're trying to become?"</div>
+      </div>
+      <div class="char-card fade-up" style="--char-color:rgba(251,146,60,0.08);--char-border:rgba(251,146,60,0.3);--char-accent:#FB923C">
+        <div class="cc-emoji">🌈</div>
+        <div class="cc-code">ENFP</div>
+        <div class="cc-name">The Campaigner</div>
+        <div class="cc-desc">Finds the spark in the impossible. Reminds you what you almost forgot you wanted.</div>
+        <div class="cc-quote">"The boring option is always available. What's the version that actually excites you?"</div>
+      </div>
+      <!-- SJ — Sentinels -->
+      <div class="char-card fade-up" style="--char-color:rgba(148,163,184,0.06);--char-border:rgba(148,163,184,0.25);--char-accent:#94A3B8">
+        <div class="cc-emoji">🛡</div>
+        <div class="cc-code">ISFJ</div>
+        <div class="cc-name">The Defender</div>
+        <div class="cc-desc">Thinks about the people you'll affect. The quiet guardian of what matters most.</div>
+        <div class="cc-quote">"Who else is carrying the weight of this decision with you, even if they don't know it?"</div>
+      </div>
+      <div class="char-card fade-up" style="--char-color:rgba(148,163,184,0.06);--char-border:rgba(148,163,184,0.25);--char-accent:#94A3B8">
+        <div class="cc-emoji">📋</div>
+        <div class="cc-code">ISTJ</div>
+        <div class="cc-name">The Logistician</div>
+        <div class="cc-desc">The reality check. Asks what the plan actually looks like on Monday morning.</div>
+        <div class="cc-quote">"What's the first concrete step, and what's the first obstacle after it?"</div>
+      </div>
+      <div class="char-card fade-up" style="--char-color:rgba(148,163,184,0.06);--char-border:rgba(148,163,184,0.25);--char-accent:#94A3B8">
+        <div class="cc-emoji">🤝</div>
+        <div class="cc-code">ESFJ</div>
+        <div class="cc-name">The Consul</div>
+        <div class="cc-desc">Maps the relational landscape. Who will be affected, and how will they receive this?</div>
+        <div class="cc-quote">"How does this change your relationship with the people closest to you?"</div>
+      </div>
+      <div class="char-card fade-up" style="--char-color:rgba(148,163,184,0.06);--char-border:rgba(148,163,184,0.25);--char-accent:#94A3B8">
+        <div class="cc-emoji">📣</div>
+        <div class="cc-code">ESTJ</div>
+        <div class="cc-name">The Executive</div>
+        <div class="cc-desc">Demands accountability. Cuts to the timeline and the result — no ambiguity.</div>
+        <div class="cc-quote">"Decide. Then execute. Revisiting the decision every week is the decision."</div>
+      </div>
+      <!-- SP — Explorers -->
+      <div class="char-card fade-up" style="--char-color:rgba(148,163,184,0.06);--char-border:rgba(148,163,184,0.25);--char-accent:#94A3B8">
+        <div class="cc-emoji">🎨</div>
+        <div class="cc-code">ISFP</div>
+        <div class="cc-name">The Artist</div>
+        <div class="cc-desc">Asks if this choice lets you live authentically, or just comfortably.</div>
+        <div class="cc-quote">"Is this path beautiful? Not aesthetically — as a life?"</div>
+      </div>
+      <div class="char-card fade-up" style="--char-color:rgba(148,163,184,0.06);--char-border:rgba(148,163,184,0.25);--char-accent:#94A3B8">
+        <div class="cc-emoji">🔧</div>
+        <div class="cc-code">ISTP</div>
+        <div class="cc-name">The Virtuoso</div>
+        <div class="cc-desc">Solves the practical angle. What's the simplest version of this that actually works?</div>
+        <div class="cc-quote">"Remove everything that's not essential. What's left?"</div>
+      </div>
+      <div class="char-card fade-up" style="--char-color:rgba(148,163,184,0.06);--char-border:rgba(148,163,184,0.25);--char-accent:#94A3B8">
+        <div class="cc-emoji">🎭</div>
+        <div class="cc-code">ESFP</div>
+        <div class="cc-name">The Entertainer</div>
+        <div class="cc-desc">Asks what you'd do if fear wasn't part of the equation. Then makes you answer honestly.</div>
+        <div class="cc-quote">"If a year from now this works, what does that day feel like?"</div>
+      </div>
+      <div class="char-card fade-up" style="--char-color:rgba(148,163,184,0.06);--char-border:rgba(148,163,184,0.25);--char-accent:#94A3B8">
+        <div class="cc-emoji">⚔️</div>
+        <div class="cc-code">ESTP</div>
+        <div class="cc-name">The Entrepreneur</div>
+        <div class="cc-desc">Calculates the real risk vs. the perceived risk. Then challenges you to act on the data.</div>
+        <div class="cc-quote">"You're not afraid of failing. You're afraid of looking like you tried and failed."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ══ PROOF ════════════════════════════════════════════════════════════ -->
+<section class="proof-section" id="proof">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-label">Social Proof</div>
+      <h2 class="section-title">The Council has<br><em>spoken.</em></h2>
+    </div>
+
+    <div class="proof-stats fade-up">
+      <div class="stat-cell">
+        <div class="stat-val"><em>16</em></div>
+        <div class="stat-label">MBTI personality voices<br>in every Council</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-val">3<em>min</em></div>
+        <div class="stat-label">Average time from first word<br>to Council's Verdict</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-val"><em>1B+</em></div>
+        <div class="stat-label">16personalities tests taken —<br>this is the next step</div>
+      </div>
+    </div>
+
+    <div class="testimonials" style="margin-top:40px">
+      <div class="tcard fade-up">
+        <div class="tcard-text">"ENTJ said the thing no one in my life would say to me. I needed to hear it. I changed jobs the next week."</div>
+        <div class="tcard-who">
+          <div class="tcard-avatar" style="background:#1A0F3A">⚡</div>
+          <div>
+            <div class="tcard-name">Zeynep A.</div>
+            <div class="tcard-type">Voted ENTJ · Istanbul</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard fade-up">
+        <div class="tcard-text">I asked 16TypeTalk if I should tell him how I feel. <strong>INFJ said the thing that made me cry.</strong> It was right."</div>
+        <div class="tcard-who">
+          <div class="tcard-avatar" style="background:#1A0F2A">🌙</div>
+          <div>
+            <div class="tcard-name">Alex M.</div>
+            <div class="tcard-type">Voted INFJ · New York</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard fade-up">
+        <div class="tcard-text">"I thought I knew what I wanted. INTJ built a logical map of my situation and I realized I'd been solving the wrong problem for 8 months."</div>
+        <div class="tcard-who">
+          <div class="tcard-avatar" style="background:#0F1F2A">🔭</div>
+          <div>
+            <div class="tcard-name">Kerim B.</div>
+            <div class="tcard-type">Voted INTJ · Ankara</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ══ FINAL CTA ════════════════════════════════════════════════════════ -->
+<section class="cta-section" id="waitlist">
+  <div class="cta-inner">
+    <div class="cta-chars-row fade-up">
+      <div class="cta-char" style="background:#1A0F3A">⚡</div>
+      <div class="cta-char" style="background:#041A1A">🌊</div>
+      <div class="cta-char" style="background:#0F1F2A">🔭</div>
+      <div class="cta-char" style="background:#0F2A1A">💡</div>
+      <div class="cta-char" style="background:#1A0F2A">🌙</div>
+      <div class="cta-char" style="background:#2A0F0F">🔥</div>
+    </div>
+
+    <h2 class="cta-title fade-up">
+      Your Council is<br><em>waiting for you.</em>
+    </h2>
+
+    <p class="cta-sub fade-up">16TypeTalk drops on the App Store soon. Be the first to build your Council — and the first to hear what your 16 minds have to say.</p>
+
+    <!-- CTA FORM -->
+    <div id="cta-form-wrap" class="fade-up">
+      <form id="ctaForm" class="cta-form" onsubmit="handleCTASubmit(event)">
+        <input type="email" id="ctaEmail" placeholder="your@email.com" autocomplete="email" required>
+        <button type="submit">Get Early Access →</button>
+      </form>
+      <p class="cta-fine">One email when we launch. No spam. No BS.</p>
+    </div>
+
+    <!-- CTA SUCCESS -->
+    <div class="cta-success" id="ctaSuccess">
+      <div class="cta-success-icon">🎉</div>
+      <div class="cta-success-h">You're in.</div>
+      <div class="cta-success-s">We'll send you one email the moment 16TypeTalk is live. Your Council is assembled and ready.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ FOOTER ═══════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo"><em>16</em>TypeTalk</div>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="mailto:16typestalk@proton.me">Contact</a>
+    </div>
+    <div style="font-size:12px;color:var(--t3)">© 2026 16TypeTalk. MBTI® is a trademark of The Myers & Briggs Foundation. Not affiliated.</div>
+  </div>
+</footer>
+
+<script>
+/* ── PARTICLES ────────────────────────────────────────────────────────── */
+const canvas=document.getElementById('cvs');
+const ctx=canvas.getContext('2d');
+let W,H,particles=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+resize();window.addEventListener('resize',resize);
+class P{constructor(){this.reset()}reset(){this.x=Math.random()*W;this.y=H+20;this.vx=(Math.random()-.5)*.3;this.vy=-(Math.random()*.6+.2);this.r=Math.random()*2.5+.5;this.a=0;this.ma=Math.random()*.15+.05;this.life=0;this.ml=Math.random()*600+400;}update(){this.x+=this.vx;this.y+=this.vy;this.life++;const p=this.life/this.ml;this.a=p<.1?p*10*this.ma:p>.8?(1-p)*5*this.ma:this.ma;if(this.life>this.ml)this.reset();}draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle=`rgba(107,92,231,${this.a})`;ctx.fill();}}
+for(let i=0;i<60;i++)particles.push(new P());
+function anim(){ctx.clearRect(0,0,W,H);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(anim);}
+anim();
+
+/* ── SCROLL ANIMATIONS ─────────────────────────────────────────────────── */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-up').forEach(el=>{obs.observe(el);});
+
+/* ── WAITLIST FORMS (Google Sheets) ──────────────────────────────────── */
+const SHEET_API='GOOGLE_APPS_SCRIPT_URL_BURAYA';
+
+function submitToSheet(email,source){
+  return fetch(SHEET_API,{
+    method:'POST',
+    mode:'no-cors',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({email:email,source:source}),
+  });
+}
+
+function handleHeroSubmit(e){
+  e.preventDefault();
+  const email=document.getElementById('heroEmail').value.trim();
+  const btn=e.target.querySelector('button');
+  btn.textContent='Sending...';
+  btn.disabled=true;
+  submitToSheet(email,'hero').then(()=>{
+    document.getElementById('hero-form-wrap').style.display='none';
+    document.getElementById('heroSuccess').style.display='flex';
+  }).catch(()=>{
+    alert('Something went wrong. Please email us at 16typestalk@proton.me');
+    btn.textContent='Notify Me →';
+    btn.disabled=false;
+  });
+}
+
+function handleCTASubmit(e){
+  e.preventDefault();
+  const email=document.getElementById('ctaEmail').value.trim();
+  const btn=e.target.querySelector('button');
+  btn.textContent='Sending...';
+  btn.disabled=true;
+  submitToSheet(email,'cta').then(()=>{
+    document.getElementById('cta-form-wrap').style.display='none';
+    document.getElementById('ctaSuccess').style.display='flex';
+  }).catch(()=>{
+    alert('Something went wrong. Please email us at 16typestalk@proton.me');
+    btn.textContent='Get Early Access →';
+    btn.disabled=false;
+  });
+}
+
+function scrollToWaitlist(e){
+  e.preventDefault();
+  document.getElementById('waitlist').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>

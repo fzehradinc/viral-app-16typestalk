@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — 16TypeTalk</title>
+<meta name="description" content="16TypeTalk Privacy Policy — How we protect your data and your thoughts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #08080E;
+  --bg2:       #0F0F1A;
+  --bg3:       #141424;
+  --surface:   rgba(255,255,255,0.04);
+  --border:    rgba(255,255,255,0.08);
+  --purple:    #6B5CE7;
+  --purple-l:  #9B8FFF;
+  --purple-dim:#3D3580;
+  --gold:      #EF9F27;
+  --teal:      #4DBDBA;
+  --text:      rgba(255,255,255,0.90);
+  --text-s:    rgba(255,255,255,0.55);
+  --text-xs:   rgba(255,255,255,0.30);
+  --ff-display:'Playfair Display', Georgia, serif;
+  --ff-body:   'DM Sans', system-ui, sans-serif;
+  --ff-mono:   'DM Mono', monospace;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--ff-body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+
+/* ── PARTICLES ─────────────────────────────────────────────────────── */
+#particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.pt{position:absolute;border-radius:50%;background:var(--purple);opacity:0;animation:rise var(--d,14s) var(--dl,0s) linear infinite}
+@keyframes rise{0%{opacity:0;transform:translateY(0) scale(1)}10%{opacity:.18}80%{opacity:.10}100%{opacity:0;transform:translateY(-100vh) scale(.6)}}
+
+/* ── BANNER ─────────────────────────────────────────────────────────── */
+.banner{position:relative;z-index:10;background:linear-gradient(135deg,#0D0820 0%,#150F30 50%,#0D0820 100%);border-bottom:1px solid rgba(107,92,231,0.25);padding:0}
+.banner-inner{max-width:1100px;margin:0 auto;padding:28px 24px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+.banner-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(107,92,231,0.15);border:1px solid rgba(107,92,231,0.35);border-radius:20px;padding:4px 12px;margin-bottom:10px}
+.banner-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--purple-l);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+.banner-badge-text{font-size:11px;font-weight:500;color:var(--purple-l);letter-spacing:.08em;text-transform:uppercase}
+.banner-headline{font-family:var(--ff-display);font-size:clamp(22px,3.5vw,34px);font-weight:700;line-height:1.2;color:var(--text);margin-bottom:8px}
+.banner-headline em{font-style:italic;color:var(--purple-l)}
+.banner-sub{font-size:14px;color:var(--text-s);max-width:520px;line-height:1.55;margin-bottom:20px}
+.banner-chars{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.bc{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:5px 10px;font-size:12px;font-weight:500;color:var(--text-s)}
+.bc span:first-child{font-size:15px}
+.banner-form{display:flex;gap:8px;flex-wrap:wrap}
+.banner-form input[type=email]{flex:1;min-width:220px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:11px 16px;font-size:14px;color:var(--text);font-family:var(--ff-body);outline:none;transition:border-color .2s}
+.banner-form input[type=email]:focus{border-color:var(--purple)}
+.banner-form input[type=email]::placeholder{color:var(--text-xs)}
+.banner-form button{background:var(--purple);border:none;border-radius:10px;padding:11px 22px;font-size:14px;font-weight:500;color:#fff;cursor:pointer;font-family:var(--ff-body);transition:background .2s,transform .15s;white-space:nowrap}
+.banner-form button:hover{background:#7C6FE8;transform:translateY(-1px)}
+.banner-form button:active{transform:translateY(0)}
+.banner-note{font-size:11px;color:var(--text-xs);margin-top:6px}
+.banner-visual{display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0}
+.bv-phone{width:110px;height:190px;background:var(--bg2);border:1.5px solid rgba(107,92,231,0.3);border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px;position:relative;overflow:hidden}
+.bv-phone::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 30%,rgba(107,92,231,0.12) 0%,transparent 70%)}
+.bv-logo{font-size:10px;font-weight:700;color:var(--purple-l);letter-spacing:.04em}
+.bv-chars{display:flex;flex-direction:column;gap:5px;width:100%}
+.bv-c{background:rgba(255,255,255,0.04);border-radius:6px;padding:5px 7px;font-size:9px;color:var(--text-s);display:flex;align-items:center;gap:5px}
+.bv-soon{background:var(--purple);border-radius:6px;padding:6px 10px;font-size:10px;font-weight:600;color:#fff;text-align:center;width:100%;letter-spacing:.04em}
+.banner-stores{display:flex;gap:6px;margin-top:4px}
+.bstore{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);border-radius:8px;padding:6px 12px;font-size:10px;font-weight:500;color:var(--text-s);display:flex;align-items:center;gap:5px}
+.banner-success{display:none;align-items:center;gap:8px;background:rgba(77,189,186,0.12);border:1px solid rgba(77,189,186,0.3);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--teal)}
+
+/* ── NAV ─────────────────────────────────────────────────────────────── */
+nav{position:sticky;top:0;z-index:20;background:rgba(8,8,14,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+.nav-logo{font-family:var(--ff-display);font-size:18px;font-weight:700;color:var(--text);text-decoration:none}
+.nav-logo em{font-style:normal;color:var(--purple-l)}
+.nav-links{display:flex;gap:6px}
+.nav-links a{font-size:13px;color:var(--text-s);text-decoration:none;padding:6px 12px;border-radius:8px;transition:all .15s;border:1px solid transparent}
+.nav-links a:hover,.nav-links a.active{color:var(--text);border-color:var(--border);background:var(--surface)}
+
+/* ── LAYOUT ─────────────────────────────────────────────────────────── */
+.page-wrap{max-width:1100px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:start;position:relative;z-index:1}
+aside{position:sticky;top:80px;padding:32px 0}
+.aside-label{font-size:10px;font-weight:500;color:var(--text-xs);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;padding:0 12px}
+.toc-list{list-style:none}
+.toc-list li a{display:block;font-size:13px;color:var(--text-s);text-decoration:none;padding:7px 12px;border-radius:8px;border-left:2px solid transparent;transition:all .15s;line-height:1.3}
+.toc-list li a:hover{color:var(--text);background:var(--surface);border-left-color:var(--purple-dim)}
+.toc-list li a.active{color:var(--purple-l);background:rgba(107,92,231,0.08);border-left-color:var(--purple)}
+.toc-list li.toc-sub a{padding-left:22px;font-size:12px}
+main{padding:40px 0 100px}
+
+/* ── PAGE HEADER ───────────────────────────────────────────────────── */
+.page-header{margin-bottom:48px}
+.page-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;color:var(--purple-l);letter-spacing:.10em;text-transform:uppercase;margin-bottom:14px}
+.page-eyebrow::before{content:'';width:20px;height:1px;background:var(--purple-l)}
+.page-title{font-family:var(--ff-display);font-size:clamp(32px,5vw,52px);font-weight:700;line-height:1.1;margin-bottom:16px}
+.page-title em{font-style:italic;color:var(--purple-l)}
+.page-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--text-xs)}
+.page-meta span{display:flex;align-items:center;gap:5px}
+
+/* ── SECTION ─────────────────────────────────────────────────────────── */
+.section{margin-bottom:56px;padding-top:8px}
+.section:first-child{padding-top:0}
+.section-num{display:inline-block;font-size:11px;font-weight:500;color:var(--purple);font-family:var(--ff-mono);margin-bottom:8px;letter-spacing:.06em}
+h2.section-title{font-family:var(--ff-display);font-size:24px;font-weight:700;color:var(--text);margin-bottom:16px;line-height:1.25}
+h3.sub-title{font-size:15px;font-weight:500;color:var(--text);margin:28px 0 10px;padding-left:14px;border-left:2px solid var(--purple-dim)}
+p{color:var(--text-s);font-size:15px;line-height:1.75;margin-bottom:14px}
+ul{list-style:none;margin-bottom:16px}
+ul li{position:relative;padding:6px 0 6px 24px;font-size:15px;color:var(--text-s);line-height:1.65}
+ul li::before{content:'';position:absolute;left:6px;top:15px;width:6px;height:6px;border-radius:50%;background:var(--purple-dim)}
+.note-box{background:rgba(107,92,231,0.08);border:1px solid rgba(107,92,231,0.20);border-radius:12px;padding:16px 20px;margin:20px 0;font-size:14px;color:var(--text-s);line-height:1.65}
+.note-box strong{color:var(--purple-l);font-weight:500}
+.warn-box{background:rgba(239,159,39,0.07);border:1px solid rgba(239,159,39,0.20);border-radius:12px;padding:16px 20px;margin:20px 0;font-size:14px;color:rgba(239,159,39,0.80);line-height:1.65}
+.contact-block{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:16px 0}
+.contact-block h4{font-size:13px;font-weight:500;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.contact-block h4::after{content:'';flex:1;height:1px;background:var(--border)}
+.contact-block p{font-size:13px;margin-bottom:6px}
+.contact-block a{color:var(--purple-l);text-decoration:none}
+.contact-block a:hover{text-decoration:underline}
+.divider{border:none;border-top:1px solid var(--border);margin:40px 0}
+
+/* ── FOOTER ─────────────────────────────────────────────────────────── */
+footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;position:relative;z-index:1}
+footer p{font-size:13px;color:var(--text-xs)}
+footer a{color:var(--text-s);text-decoration:none}
+footer a:hover{color:var(--text)}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────────── */
+@media(max-width:768px){
+  .page-wrap{grid-template-columns:1fr;gap:0}
+  aside{display:none}
+  .banner-inner{grid-template-columns:1fr}
+  .banner-visual{display:none}
+}
+</style>
+</head>
+<body>
+
+<div id="particles"></div>
+
+<!-- ── BANNER ─────────────────────────────────────────────────────────────── -->
+<div class="banner">
+  <div class="banner-inner">
+    <div class="banner-content">
+      <div class="banner-badge">
+        <div class="banner-badge-dot"></div>
+        <span class="banner-badge-text">Coming Soon to App Store</span>
+      </div>
+      <h2 class="banner-headline">
+        16 minds are about to<br><em>debate your every decision.</em>
+      </h2>
+      <p class="banner-sub">
+        16TypeTalk is landing on the App Store. ENTJ will challenge you. INFP will surprise you.
+        INTJ will see what others miss. Be the first to build your Council.
+      </p>
+      <div class="banner-chars">
+        <div class="bc"><span>⚡</span> ENTJ — Commander</div>
+        <div class="bc"><span>🌊</span> INFP — Mediator</div>
+        <div class="bc"><span>🔭</span> INTJ — Architect</div>
+        <div class="bc"><span>💡</span> ENTP — Debater</div>
+        <div class="bc"><span>🌙</span> INFJ — Advocate</div>
+        <div class="bc" style="color:var(--text-xs)">+ 11 more voices</div>
+      </div>
+      <div class="banner-form" id="bannerForm">
+        <input type="email" id="bannerEmail" placeholder="your@email.com" autocomplete="email">
+        <button onclick="submitWaitlist()">Join the Waitlist →</button>
+      </div>
+      <div class="banner-success" id="bannerSuccess">
+        <span>🎉</span>
+        <span>You're on the list! We'll notify you the moment 16TypeTalk launches.</span>
+      </div>
+      <p class="banner-note">No spam. One email when we launch. Unsubscribe anytime.</p>
+    </div>
+    <div class="banner-visual">
+      <div class="bv-phone">
+        <div class="bv-logo">16TypeTalk</div>
+        <div class="bv-chars">
+          <div class="bv-c"><span>⚡</span> ENTJ</div>
+          <div class="bv-c"><span>🌊</span> INFP</div>
+          <div class="bv-c"><span>🔭</span> INTJ</div>
+        </div>
+        <div class="bv-soon">Coming Soon</div>
+      </div>
+      <div class="banner-stores">
+        <div class="bstore">🍎 App Store</div>
+        <div class="bstore">▶ Google Play</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── NAV ────────────────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><em>16</em>TypeTalk</a>
+    <div class="nav-links">
+      <a href="privacy.html" class="active">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── CONTENT ────────────────────────────────────────────────────────────── -->
+<div class="page-wrap">
+
+  <!-- SIDEBAR -->
+  <aside>
+    <div class="aside-label">Contents</div>
+    <ul class="toc-list" id="toc">
+      <li><a href="#s1">1. Introduction</a></li>
+      <li><a href="#s2">2. About 16TypeTalk</a></li>
+      <li><a href="#s3">3. Information We Collect</a></li>
+      <li class="toc-sub"><a href="#s3-1">3.1 You Provide</a></li>
+      <li class="toc-sub"><a href="#s3-2">3.2 Automatic</a></li>
+      <li class="toc-sub"><a href="#s3-3">3.3 Not Collected</a></li>
+      <li><a href="#s4">4. How We Use It</a></li>
+      <li><a href="#s5">5. AI Processing &amp; Apple Disclosure</a></li>
+      <li><a href="#s6">6. Data Sharing</a></li>
+      <li><a href="#s7">7. Data Retention</a></li>
+      <li><a href="#s8">8. Account Deletion</a></li>
+      <li><a href="#s9">9. Your Privacy Rights</a></li>
+      <li><a href="#s10">10. Children's Privacy</a></li>
+      <li><a href="#s11">11. Mental Health Safety</a></li>
+      <li><a href="#s12">12. Security</a></li>
+      <li><a href="#s13">13. International Transfers</a></li>
+      <li><a href="#s14">14. Cookies</a></li>
+      <li><a href="#s15">15. Third-Party Links</a></li>
+      <li><a href="#s16">16. Policy Changes</a></li>
+      <li><a href="#s17">17. Contact</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <div class="page-header">
+      <div class="page-eyebrow">Legal</div>
+      <h1 class="page-title">Privacy <em>Policy</em></h1>
+      <div class="page-meta">
+        <span>📅 Effective: April 3, 2026</span>
+        <span>🔗 16typetalk.app/privacy</span>
+        <span>📧 16typestalk@proton.me</span>
+      </div>
+    </div>
+
+    <!-- 1 -->
+    <div class="section" id="s1">
+      <div class="section-num">§ 01</div>
+      <h2 class="section-title">Introduction and Our Privacy Commitment</h2>
+      <p>16TypeTalk ("we," "our," or "us") is built on a simple principle: <strong>your thoughts and reflections are yours.</strong> This Privacy Policy describes what information we collect, why we collect it, how we use it, and the choices you have about your data.</p>
+      <p>We have written this policy in plain language — not to hide anything, but to be genuinely transparent. We believe you deserve to understand exactly how your data flows through our service.</p>
+      <p>This Privacy Policy covers the 16TypeTalk mobile application and any related services (collectively, the "Service"). By using the Service, you agree to the practices described here.</p>
+      <div class="contact-block">
+        <h4>Privacy Contact</h4>
+        <p>Privacy &amp; data requests: <a href="mailto:16typestalk@proton.me">16typestalk@proton.me</a></p>
+        <p>Legal &amp; terms inquiries: <a href="mailto:16typestalk_app@proton.me">16typestalk_app@proton.me</a></p>
+        <p>Website: <a href="https://16typetalk.app">16typetalk.app</a></p>
+      </div>
+    </div>
+    <hr class="divider">
+
+    <!-- 2 -->
+    <div class="section" id="s2">
+      <div class="section-num">§ 02</div>
+      <h2 class="section-title">About 16TypeTalk</h2>
+      <p>16TypeTalk is an AI-powered personal reflection application. The Service presents multiple MBTI-inspired personality perspectives ("the Council") in response to situations, decisions, or questions you share. Our goal is to help you think more clearly by offering diverse, structured viewpoints — not to replace human connection, professional advice, or therapy.</p>
+      <p>MBTI® and Myers-Briggs Type Indicator® are registered trademarks of The Myers & Briggs Foundation. We are not affiliated with or endorsed by The Myers & Briggs Foundation. Our use of MBTI-inspired concepts is for self-reflection and entertainment purposes only.</p>
+    </div>
+    <hr class="divider">
+
+    <!-- 3 -->
+    <div class="section" id="s3">
+      <div class="section-num">§ 03</div>
+      <h2 class="section-title">Information We Collect</h2>
+
+      <h3 class="sub-title" id="s3-1">3.1 Information You Provide Directly</h3>
+      <p>When you use the Service, you may provide the following categories of information:</p>
+      <h3 class="sub-title">Authentication Data</h3>
+      <ul>
+        <li><strong>Sign in with Apple:</strong> We receive a unique user identifier and, at your option, your name and/or email address. We never receive or store your Apple ID password.</li>
+        <li><strong>Google Sign-In:</strong> We receive your Google account identifier, display name, and email address. We never receive or store your Google password.</li>
+        <li>You may also use limited features as a guest without creating an account.</li>
+      </ul>
+      <h3 class="sub-title">Content You Submit</h3>
+      <ul>
+        <li>Text prompts, questions, and situations you share with the Council</li>
+        <li>Your voting choices (which character perspective resonated most)</li>
+        <li>Follow-up messages and reactions during discussions</li>
+        <li>User preferences (language selection, notification settings)</li>
+      </ul>
+      <div class="note-box"><strong>Important:</strong> We strongly recommend you do not include highly sensitive personal information in your prompts, such as full financial account numbers, complete medical records, or detailed legal case information identifying third parties.</div>
+
+      <h3 class="sub-title" id="s3-2">3.2 Information Collected Automatically</h3>
+      <ul>
+        <li>Device type, operating system version, and app version number</li>
+        <li>Crash reports and error logs (to identify and fix technical issues)</li>
+        <li>Basic usage analytics: which screens you visit, features you use, and session duration — not used for advertising</li>
+        <li>App performance data for service improvement</li>
+      </ul>
+
+      <h3 class="sub-title" id="s3-3">3.3 What We Do NOT Collect</h3>
+      <ul>
+        <li>Precise geolocation data</li>
+        <li>Contacts, photos, or other files without explicit permission</li>
+        <li>Biometric data of any kind</li>
+        <li>Cross-app or cross-website tracking data</li>
+        <li>Advertising profiles</li>
+        <li>Your personal information for sale to third parties — ever</li>
+      </ul>
+    </div>
+    <hr class="divider">
+
+    <!-- 4 -->
+    <div class="section" id="s4">
+      <div class="section-num">§ 04</div>
+      <h2 class="section-title">How We Use Your Information</h2>
+      <h3 class="sub-title">4.1 Core Service Delivery</h3>
+      <ul>
+        <li>Processing your text prompts through AI models to generate Council perspectives</li>
+        <li>Storing your session history and reports so you can review them</li>
+        <li>Personalizing your experience based on your preferences</li>
+        <li>Tracking your usage streak and session statistics</li>
+      </ul>
+      <h3 class="sub-title">4.2 Service Improvement and Safety</h3>
+      <ul>
+        <li>Diagnosing and fixing technical bugs using crash reports</li>
+        <li>Understanding which features are most useful through anonymized analytics</li>
+        <li>Maintaining security and detecting abuse</li>
+      </ul>
+      <h3 class="sub-title">4.3 Communications</h3>
+      <ul>
+        <li>Service-related notifications (if enabled)</li>
+        <li>Responding to privacy inquiries and support requests</li>
+        <li>Notifying you of material changes to this Policy</li>
+      </ul>
+      <p>We do <strong>not</strong> use your personal data or conversation content for advertising or marketing profiling.</p>
+    </div>
+    <hr class="divider">
+
+    <!-- 5 -->
+    <div class="section" id="s5">
+      <div class="section-num">§ 05</div>
+      <h2 class="section-title">AI Processing & Third-Party Disclosure</h2>
+      <div class="note-box"><strong>Apple App Store Compliance (Guideline 5.1.2(i)):</strong> We explicitly disclose that your prompt text is shared with third-party AI services. Your explicit consent is obtained before any data is transmitted.</div>
+      <h3 class="sub-title">5.1 How AI Processing Works</h3>
+      <p>When you submit a prompt to the Council, the text of your message is transmitted to external AI service providers to generate responses. This is the core technical mechanism of the Service.</p>
+      <h3 class="sub-title">5.2 Current AI Providers</h3>
+      <ul>
+        <li><strong>Anthropic, Inc. (Claude)</strong> — for generating personality-based responses</li>
+      </ul>
+      <p>These providers act as data processors on our behalf. They are contractually prohibited from using your prompts to train their models without separate disclosure and consent.</p>
+      <h3 class="sub-title">5.3 Your Explicit Consent</h3>
+      <p>By submitting a prompt to the Council, you explicitly consent to your prompt text being transmitted to our AI service providers. This consent is displayed clearly during onboarding. You may withdraw consent at any time by ceasing to submit new prompts.</p>
+      <h3 class="sub-title">5.4 What Is NOT Sent to AI Providers</h3>
+      <ul>
+        <li>Your name or email address</li>
+        <li>Your Apple or Google account identifiers</li>
+        <li>Your device information</li>
+        <li>Your usage analytics or behavioral data</li>
+      </ul>
+    </div>
+    <hr class="divider">
+
+    <!-- 6 -->
+    <div class="section" id="s6">
+      <div class="section-num">§ 06</div>
+      <h2 class="section-title">Data Sharing and Disclosure</h2>
+      <p>We <strong>do not sell</strong> your personal information. We share information only in these specific circumstances:</p>
+      <h3 class="sub-title">6.1 Service Providers</h3>
+      <ul>
+        <li><strong>Cloud hosting:</strong> For storing session data and reports</li>
+        <li><strong>AI API:</strong> Anthropic (Claude) — see Section 5</li>
+        <li><strong>Authentication:</strong> Apple, Google</li>
+        <li><strong>Diagnostics:</strong> Crash reporting for technical issues</li>
+        <li><strong>Analytics:</strong> Aggregated, anonymized usage statistics</li>
+      </ul>
+      <h3 class="sub-title">6.2 Legal Requirements</h3>
+      <p>We may disclose information if required by applicable law, regulation, or valid legal process. Where permitted by law, we will notify you before disclosing.</p>
+      <h3 class="sub-title">6.3 Business Transfers</h3>
+      <p>If we are involved in a merger or acquisition, you will be notified at least 30 days in advance via email or in-app notice.</p>
+    </div>
+    <hr class="divider">
+
+    <!-- 7 -->
+    <div class="section" id="s7">
+      <div class="section-num">§ 07</div>
+      <h2 class="section-title">Data Retention</h2>
+      <ul>
+        <li><strong>Account &amp; profile data:</strong> Retained while account is active. Deleted within 30 days of account deletion.</li>
+        <li><strong>Session history &amp; reports:</strong> Retained until you delete them or delete your account.</li>
+        <li><strong>Crash logs:</strong> Deleted after 90 days.</li>
+        <li><strong>Analytics:</strong> Anonymized after 12 months.</li>
+        <li><strong>Backups:</strong> Cleared within 90 days of original deletion.</li>
+      </ul>
+    </div>
+    <hr class="divider">
+
+    <!-- 8 -->
+    <div class="section" id="s8">
+      <div class="section-num">§ 08</div>
+      <h2 class="section-title">Account Deletion</h2>
+      <p>You can delete your account and all associated data at any time:</p>
+      <ul>
+        <li>Open 16TypeTalk → Profile tab</li>
+        <li>Tap Settings → Delete Account</li>
+        <li>Confirm identity and confirm deletion</li>
+      </ul>
+      <p>All personal data is permanently removed within 30 days. Backups are cleared within 90 days. This is irreversible.</p>
+      <div class="contact-block">
+        <h4>Can't delete in-app?</h4>
+        <p>Email <a href="mailto:16typestalk@proton.me">16typestalk@proton.me</a> with subject "Account Deletion Request" and the email associated with your account.</p>
+      </div>
+    </div>
+    <hr class="divider">
+
+    <!-- 9 -->
+    <div class="section" id="s9">
+      <div class="section-num">§ 09</div>
+      <h2 class="section-title">Your Privacy Rights</h2>
+      <ul>
+        <li><strong>Access:</strong> Request a copy of your personal information</li>
+        <li><strong>Correction:</strong> Request correction of inaccurate data</li>
+        <li><strong>Deletion:</strong> Request permanent deletion (see Section 8)</li>
+        <li><strong>Portability:</strong> Request your data in a machine-readable format</li>
+        <li><strong>Restriction:</strong> Request we limit processing in certain circumstances</li>
+        <li><strong>Withdraw Consent:</strong> Withdraw consent for AI processing at any time</li>
+        <li><strong>Object:</strong> Object to processing based on legitimate interests</li>
+      </ul>
+      <p>Email <a href="mailto:16typestalk@proton.me" style="color:var(--purple-l)">16typestalk@proton.me</a> with subject "Privacy Rights Request." We respond within 30 days. EEA/UK residents may also contact their local data protection authority (edpb.europa.eu).</p>
+      <h3 class="sub-title">California Residents (CCPA/CPRA)</h3>
+      <ul>
+        <li>Right to know categories and specific pieces of data collected</li>
+        <li>Right to know purposes for each category</li>
+        <li>Right to opt out of the sale of personal information — <strong>we do not sell data</strong></li>
+        <li>Right to non-discrimination for exercising your rights</li>
+      </ul>
+    </div>
+    <hr class="divider">
+
+    <!-- 10 -->
+    <div class="section" id="s10">
+      <div class="section-num">§ 10</div>
+      <h2 class="section-title">Children's Privacy</h2>
+      <p>16TypeTalk is not directed to children under 13. We do not knowingly collect personal information from children under 13. If you believe your child has provided data, contact <a href="mailto:16typestalk@proton.me" style="color:var(--purple-l)">16typestalk@proton.me</a> immediately with subject "Child Data Request."</p>
+      <p>Users aged 13–17 should use the Service only with parental consent and supervision.</p>
+    </div>
+    <hr class="divider">
+
+    <!-- 11 -->
+    <div class="section" id="s11">
+      <div class="section-num">§ 11</div>
+      <h2 class="section-title">Emotional and Mental Health Safety</h2>
+      <div class="warn-box">⚠️ <strong>If you are experiencing a mental health crisis or emergency, please contact emergency services immediately. Do not use 16TypeTalk in emergencies.</strong></div>
+      <ul>
+        <li>16TypeTalk is NOT a mental health treatment or crisis intervention service</li>
+        <li>AI responses are automatically generated and may not be appropriate for all situations</li>
+        <li>We encourage you to use AI-generated content as one perspective among many</li>
+        <li>Please seek human support when needed</li>
+      </ul>
+    </div>
+    <hr class="divider">
+
+    <!-- 12 -->
+    <div class="section" id="s12">
+      <div class="section-num">§ 12</div>
+      <h2 class="section-title">Data Security</h2>
+      <ul>
+        <li>All data in transit encrypted via TLS 1.2 or higher</li>
+        <li>Stored data encrypted with industry-standard encryption</li>
+        <li>Access restricted to authorized personnel only</li>
+        <li>Regular security reviews and vulnerability assessments</li>
+        <li>All staff with data access bound by confidentiality agreements</li>
+      </ul>
+      <p>In the event of a data breach affecting your rights, we will notify you and relevant authorities as required by law, without undue delay.</p>
+    </div>
+    <hr class="divider">
+
+    <!-- 13 -->
+    <div class="section" id="s13">
+      <div class="section-num">§ 13</div>
+      <h2 class="section-title">International Data Transfers</h2>
+      <p>Your information may be transferred to and processed in the United States or other countries. When we transfer data from the EEA, UK, or Switzerland to countries without an adequacy decision, we rely on Standard Contractual Clauses or other valid transfer mechanisms. Contact <a href="mailto:16typestalk@proton.me" style="color:var(--purple-l)">16typestalk@proton.me</a> to request information about transfer mechanisms.</p>
+    </div>
+    <hr class="divider">
+
+    <!-- 14 -->
+    <div class="section" id="s14">
+      <div class="section-num">§ 14</div>
+      <h2 class="section-title">Cookies and Tracking</h2>
+      <p>The 16TypeTalk mobile application does not use tracking cookies. We do not use advertising identifiers (IDFA or GAID) for advertising purposes. Only the minimum technical identifiers necessary to maintain your session and account are used.</p>
+    </div>
+    <hr class="divider">
+
+    <!-- 15 -->
+    <div class="section" id="s15">
+      <div class="section-num">§ 15</div>
+      <h2 class="section-title">Third-Party Links</h2>
+      <p>The Service may contain links to third-party websites. This Privacy Policy does not apply to those services. We encourage you to review the privacy policies of any third-party services you access.</p>
+    </div>
+    <hr class="divider">
+
+    <!-- 16 -->
+    <div class="section" id="s16">
+      <div class="section-num">§ 16</div>
+      <h2 class="section-title">Changes to This Policy</h2>
+      <ul>
+        <li>We update the Effective Date when changes are made</li>
+        <li>Material changes: in-app notification and/or email at least 14 days in advance</li>
+        <li>Non-material clarifications: effective upon posting</li>
+      </ul>
+      <p>Continued use after the effective date of any update constitutes acceptance of the revised Policy.</p>
+    </div>
+    <hr class="divider">
+
+    <!-- 17 -->
+    <div class="section" id="s17">
+      <div class="section-num">§ 17</div>
+      <h2 class="section-title">Contact Us</h2>
+      <div class="contact-block">
+        <h4>Privacy &amp; Data Requests</h4>
+        <p>Email: <a href="mailto:16typestalk@proton.me">16typestalk@proton.me</a></p>
+        <p>Use for: data access, deletion requests, corrections, AI consent withdrawal, privacy rights, reporting concerns</p>
+      </div>
+      <div class="contact-block">
+        <h4>Legal &amp; Terms Inquiries</h4>
+        <p>Email: <a href="mailto:16typestalk_app@proton.me">16typestalk_app@proton.me</a></p>
+        <p>Use for: Terms of Use questions, legal notices, copyright inquiries, business matters</p>
+      </div>
+      <p>We respond to all privacy inquiries within 30 days.</p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <p>© 2026 16TypeTalk &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Use</a> &nbsp;·&nbsp; <a href="mailto:16typestalk@proton.me">16typestalk@proton.me</a></p>
+</footer>
+
+<script>
+// Particles
+(function(){
+  const c=document.getElementById('particles');
+  for(let i=0;i<18;i++){
+    const p=document.createElement('div');
+    p.className='pt';
+    const sz=Math.random()*4+2;
+    p.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;bottom:${Math.random()*20}%;--d:${12+Math.random()*10}s;--dl:${Math.random()*12}s`;
+    c.appendChild(p);
+  }
+})();
+
+// Waitlist
+function submitWaitlist(){
+  const email=document.getElementById('bannerEmail').value.trim();
+  if(!email||!email.includes('@')){document.getElementById('bannerEmail').focus();return;}
+  document.getElementById('bannerForm').style.display='none';
+  const s=document.getElementById('bannerSuccess');
+  s.style.display='flex';
+  // Replace with your actual email collection endpoint
+  console.log('Waitlist email:', email);
+}
+document.getElementById('bannerEmail').addEventListener('keydown',function(e){if(e.key==='Enter')submitWaitlist();});
+
+// Active TOC on scroll
+const sections=document.querySelectorAll('.section[id]');
+const links=document.querySelectorAll('.toc-list a');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      links.forEach(l=>l.classList.remove('active'));
+      const a=document.querySelector(`.toc-list a[href="#${e.target.id}"]`);
+      if(a)a.classList.add('active');
+    }
+  });
+},{rootMargin:'-20% 0px -70% 0px'});
+sections.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
