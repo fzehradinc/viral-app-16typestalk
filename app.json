@@ -1,0 +1,8 @@
+{
+  "name": "Noorbloom",
+  "displayName": "Noorbloom",
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-7519653903385453~6402753909",
+    "ios_app_id": "ca-app-pub-3940256099942544~1458002511"
+  }
+}

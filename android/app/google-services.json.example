@@ -1,0 +1,23 @@
+{
+  "project_info": {
+    "project_number": "PLACEHOLDER",
+    "project_id": "PLACEHOLDER",
+    "storage_bucket": "PLACEHOLDER"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "PLACEHOLDER",
+        "android_client_info": {
+          "package_name": "com.noorbloom"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "PLACEHOLDER"
+        }
+      ]
+    }
+  ],
+  "configuration_version": "1"
+}
