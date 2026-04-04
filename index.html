@@ -675,7 +675,7 @@ const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersec
 document.querySelectorAll('.fade-up').forEach(el=>{obs.observe(el);});
 
 /* ── WAITLIST FORMS (Google Sheets) ──────────────────────────────────── */
-const SHEET_API='GOOGLE_APPS_SCRIPT_URL_BURAYA';
+const SHEET_API='https://script.google.com/macros/s/AKfycbwKlAx37YibTePFq6AgVygbdBOEP7XgOPnoNlxJfVDwsKIuMSqORcst-es1wm19St0yRQ/exec';
 
 function submitToSheet(email,source){
   return fetch(SHEET_API,{
